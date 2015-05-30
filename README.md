@@ -1,1 +1,2 @@
-build docker images with Endpoint Manager components like the agent
+build docker images with (BigFix) Endpoint Manager components like the server
+and the agent
