@@ -7,9 +7,14 @@ The image is based on [ibmcom/db2express-c](https://registry.hub.docker.com/u/ib
 
 Tested on a CentOS7 host with docker 1.6.0.
 
+
+
 `build.sh` runs the build process.  The outcome is a docker image named bfdocker/besserver:latest that contains an instance of BigFix Server.
 
 Dockerfile downloads the BigFix server installer and adds files.
+
+### Note
+At this time, neither running BigFix server on CentOS nor runing it in docker containers are supported options.  Details of supported platforms can be found in the IBM product documentation [site](http://www-01.ibm.com/support/docview.wss?rs=1015&uid=swg21684809). 
 
 ## To use
 
