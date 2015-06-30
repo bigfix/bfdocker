@@ -21,7 +21,7 @@ RUN mkdir -p /etc/opt/BESClient && \
 # use \\\E to output the \E of \EnterpriseClient with echo's -e option
 
 RUN echo -e \
-    "[Software\BigFix\\\EnterpriseClient\Settings\Client\_BESClient_Comm_CommandPollIntervalSeconds] \nvalue = 60 \neffective date = Thu,%2001%20Jan%202015%2000:00:00%20+0000" \
+    "[Software\BigFix\\\EnterpriseClient\Settings\Client\_BESClient_Comm_CommandPollIntervalSeconds] \nvalue = 300 \neffective date = Thu,%2001%20Jan%202015%2000:00:00%20+0000" \
     >> /var/opt/BESClient/besclient.config.default && \
   echo -e "[Software\BigFix\\\EnterpriseClient\Settings\Client\_BESClient_Comm_CommandPollEnable] \nvalue = 1 \neffective date = Thu,%2001%20Jan%202015%2000:00:00%20+0000" \
     >> /var/opt/BESClient/besclient.config.default
