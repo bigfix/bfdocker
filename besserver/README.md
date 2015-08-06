@@ -1,3 +1,10 @@
+## IMPORTANT NOTICE
+This build is based on a db2express-c image provided by IBM.
+Access to the image has been restricted. Currently the image is not publicly available on the docker hub.
+To get the db2express-c image you can request access from the image owners.
+See [here](https://registry.hub.docker.com/u/ibmcom/db2express-c/) for details  
+
+Alternatively the docker file used by IBM to create the image is available [here](https://github.com/IMC3ofC/db2express-c.docker) on github.  Using this will require you to build the db2express-c image and modify this project's Dockerfile to refer to your own db2express-c image.
 
 ## Overview
 
@@ -7,14 +14,12 @@ The image is based on [ibmcom/db2express-c](https://registry.hub.docker.com/u/ib
 
 Tested on a CentOS7 host with docker 1.6.0.
 
-
-
 `build.sh` runs the build process.  The outcome is a docker image named bfdocker/besserver:latest that contains an instance of BigFix Server.
 
 Dockerfile downloads the BigFix server installer and adds files.
 
 ### Note
-At this time, neither running BigFix server on CentOS nor runing it in docker containers are supported options.  Details of supported platforms can be found in the IBM product documentation [site](http://www-01.ibm.com/support/docview.wss?rs=1015&uid=swg21684809). 
+At this time, neither running BigFix server on CentOS nor runing it in docker containers are supported options.  Details of supported platforms can be found in the IBM product documentation [site](http://www-01.ibm.com/support/docview.wss?rs=1015&uid=swg21684809).
 
 ## To use
 
