@@ -7,7 +7,10 @@ RUN apt-get -y update && \
 
 # install the bes client
 
-ENV AGENT_DOWNLOAD_URL=http://software.bigfix.com/download/bes/92/BESAgent-9.2.5.130-ubuntu10.amd64.deb
+# BES Version so it can be modified at runtime
+ENV BES_VERSION=9.2.5.130
+
+ENV AGENT_DOWNLOAD_URL=http://software.bigfix.com/download/bes/92/BESAgent-$BES_VERSION-ubuntu10.amd64.deb
 
 # download the agent or alternatively copy it from the host
 #COPY ./BESAgent.deb /tmp/BESAgent.deb
