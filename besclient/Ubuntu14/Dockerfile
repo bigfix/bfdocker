@@ -51,7 +51,7 @@ RUN echo \
 
 # install an endpoint manager instance specific masthead
 
-ENV ROOT_SERVER=rootserver.bigfix.com:52311
+ENV ROOT_SERVER=eval.mybigfix.com:52311
 
 # download from the root server or alternatively copy from the host
 #COPY ./actionsite.afxm /etc/opt/BESClient/actionsite.afxm

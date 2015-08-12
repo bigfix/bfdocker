@@ -51,7 +51,7 @@ RUN echo -e \
 
 # install an endpoint manager instance specific masthead
 
-ENV ROOT_SERVER=rootserver.bigfix.com:52311
+ENV ROOT_SERVER=eval.mybigfix.com:52311
 
 # download the masthead or alternatively copy masthead from the host
 
