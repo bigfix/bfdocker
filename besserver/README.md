@@ -42,6 +42,7 @@ containers from the final image.
   docker run -d -p 52311:52311 -p 52311:52311/udp \
       -e DB2INST1_PASSWORD=BigFix1t4Me \
       -e LICENSE=accept --hostname=eval.mybigfix.com \
+      --name=eval.mybigfix.com \
 	     bfdocker/besserver /bes-start.sh
   ```
 
