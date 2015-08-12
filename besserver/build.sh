@@ -5,6 +5,7 @@ BES_VERSION=9.2.5.130
 sed -e s/BES_VERSION=.*/BES_VERSION=$BES_VERSION/g Dockerfile > Dockerfile_$$
 docker build -t bfdocker/besinstaller -f Dockerfile_$$ .
 rm Dockerfile_$$
+
 # run the installer in a container
 # hostname must match SRV_DNS_NAME used in the response file
 docker run -e DB2INST1_PASSWORD=BigFix1t4Me \
