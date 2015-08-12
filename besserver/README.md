@@ -30,11 +30,13 @@ At this time, neither running BigFix server on CentOS nor runing it in docker co
 the values of DB2INST1_PASSWORD and --hostname in build.sh and when you start
 containers from the final image.
 
-2.  Run the build script:
+2.  To change the version of BigFix edit `build.sh` and set the version using the `BES_VERSION` evnironment variable
+
+3.  Run the build script:
 
   `bash ./build.sh`
 
-3.  Start a container:
+4.  Start a container:
 
   ```
   docker run -d -p 52311:52311 -p 52311:52311/udp \
@@ -43,7 +45,7 @@ containers from the final image.
 	     bfdocker/besserver /bes-start.sh
   ```
 
-4. Connect a BigFix Console to the docker host.  
+5. Connect a BigFix Console to the docker host.  
 
   The evaluation edition user
 credentials are documented [here](http://www-01.ibm.com/support/knowledgecenter/#!/SS63NW_9.2.0/com.ibm.tivoli.tem.doc_9.2/Platform/Adm/c_types_of_installation_evaluation.html).  The password for EvaluationUser is that set to
