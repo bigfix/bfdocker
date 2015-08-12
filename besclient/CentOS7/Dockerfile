@@ -8,7 +8,7 @@ RUN yum -y install \
   yum clean all
 
 # install the bes client
-ENV AGENT_DOWNLOAD_URL=http://software.bigfix.com/download/bes/92/BESAgent-9.2.0.363-rhe5.x86_64.rpm
+ENV AGENT_DOWNLOAD_URL=http://software.bigfix.com/download/bes/92/BESAgent-9.2.5.130-rhe5.x86_64.rpm
 RUN mkdir -p /etc/opt/BESClient && \
   curl $AGENT_DOWNLOAD_URL > /tmp/BESAgent.rpm && \
   rpm -ivh /tmp/BESAgent.rpm
