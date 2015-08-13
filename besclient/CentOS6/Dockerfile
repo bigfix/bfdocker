@@ -49,6 +49,12 @@ RUN echo -e \
     "[Software\BigFix\\\EnterpriseClient\Settings\Client\_BESClient_Resource_SleepIdle] \nvalue = 500 \neffective date = Thu,%2001%20Jan%202015%2000:00:00%20+0000" \
     >> /var/opt/BESClient/besclient.config.default
 
+# run endpoint manager from script so it can be restarted
+
+COPY ./bes-cmd.sh /
+RUN chmod u+x /bes-cmd.sh
+CMD ["/bes-cmd.sh"]
+
 # install an endpoint manager instance specific masthead
 
 ENV ROOT_SERVER=eval.mybigfix.com:52311
@@ -57,9 +63,3 @@ ENV ROOT_SERVER=eval.mybigfix.com:52311
 
 #COPY ./actionsite.afxm /etc/opt/BESClient/actionsite.afxm
 RUN curl -k https://$ROOT_SERVER/masthead/masthead.afxm > /etc/opt/BESClient/actionsite.afxm
-
-# run endpoint manager from script so it can be restarted
-
-COPY ./bes-cmd.sh /
-RUN chmod u+x /bes-cmd.sh
-CMD ["/bes-cmd.sh"]
