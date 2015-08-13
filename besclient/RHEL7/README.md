@@ -1,3 +1,5 @@
+##Overview
+
 The Dockerfile will build a basic docker image with the Endpoint Manager agent.
 The agent is configured as follows:
 1. Use command polling so it is not necessary for it to bind a network interface on the docker host.
@@ -6,24 +8,29 @@ The agent is configured as follows:
 
 The container uses a script to start the bes agent so that the container does not stop if bes agent is stopped or restarted.
 
-ockerfile
+##Dockerfile
 
 The build will download the bigfix agent package from https://support.bigfix.com.
 
-1.  Edit Dockerfile and change ENV ROOT_SERVER to be your IEM server.
-2.  Check that ENV AGENT_DOWNLOAD_URL points to a version of the agent that is
-compatible with your IEM instance
+##Usage
 
-Run container in daemon mode, the agent will start, download the masthead and register with the root server. You should see it appear in the console as a computer. For example:
+1. Check that ENV AGENT_DOWNLOAD_URL in the `Dockerfile` points to a version of the agent that is
+compatible with your IEM instance.  If it's not, then change it to a compatible version.
+
+2. Build the image.
+
+3. Run container in daemon mode, passing in the `ROOT_SERVER` environment variable set to name and port of the root server. The agent will start, download the masthead and register with the root server. You should see it appear in the console as a computer. For example:
 
 ```
 docker run -d bfdocker/rhel7 \
-    --hostname="no1.rhel7.mybbigfix.com"
+    -e "ROOT_SERVER=eval.mybigfix.com:52311" \
+    --hostname="no1.rhel7.mybigfix.com"
 ```
 
 If a besserver is running in a container on the same host use the `--link`
 option using the name of the besserver container.
 
 ```
-docker run -d --link=eval.mybigfix.com bfdocker/rhel7
+docker run -d -e "ROOT_SERVER=eval.mybigfix.com:52311" \
+    --link=eval.mybigfix.com bfdocker/rhel7
 ```
