@@ -1,3 +1,5 @@
+## Overview
+
 The Dockerfile will build a basic docker image with the Endpoint Manager agent.
 The agent is configured as follows:
 1. Use command polling so it is not necessary for it to bind a network interface on the docker host.
@@ -6,11 +8,11 @@ The agent is configured as follows:
 
 The container uses a script to start the bes agent so that the container does not stop if bes agent is stopped or restarted.
 
-Dockerfile
+## Dockerfile
 
 The build will download the bigfix agent package from https://support.bigfix.com.
 
-Usage
+## Usage
 
 1. Check that ENV AGENT_DOWNLOAD_URL in the `Dockerfile` points to a version of the agent that is
 compatible with your IEM instance.  If it's not, then change it to a compatible version.
