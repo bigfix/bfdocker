@@ -47,10 +47,7 @@ RUN echo -e \
 COPY ./bes-cmd.sh /
 RUN chmod u+x /bes-cmd.sh
 CMD ["/bes-cmd.sh"]
-# install an endpoint manager instance specific masthead
 
+# set default environment variable of bes root server used by bes-cmd.sh to get
+# the masthead
 ENV ROOT_SERVER=eval.mybigfix.com:52311
-
-# alternatively copy masthead from the host
-#COPY ./actionsite.afxm /etc/opt/BESClient/actionsite.afxm
-RUN curl -k https://$ROOT_SERVER/masthead/masthead.afxm > /etc/opt/BESClient/actionsite.afxm
