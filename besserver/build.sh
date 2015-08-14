@@ -15,12 +15,14 @@ docker run -e DB2INST1_PASSWORD=BigFix1t4Me \
   -e LICENSE=accept --hostname=eval.mybigfix.com --name=bfdocker_install_$$ \
 	bfdocker/besinstaller /bes-install.sh
 
-# clean up the intermidate image
-docker rmi bfdocker/besinstaller
+
 
 # create a new image with the BigFix instance, tag and clean up
 docker commit bfdocker_install_$$ bfdocker/besserver:$$
 docker tag bfdocker/besserver:$$ bfdocker/besserver:latest
 
-# clean up the intermidate container
+# clean up the intermedate container
 docker rm bfdocker_install_$$
+
+# clean up the intermedate image, can only remove after the container's deleted
+docker rmi bfdocker/besinstaller
