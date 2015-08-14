@@ -1,4 +1,5 @@
-FROM ibmcom/db2express-c
+# use the private repo for db2express-c
+FROM imcloud/db2express-c
 
 # install additional BigFix prerequistes
 RUN yum -y install  libpng12.x86_64
