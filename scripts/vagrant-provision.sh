@@ -21,9 +21,18 @@ curl -sSL https://get.docker.com/ | sh
 echo 'SOURCE=/vagrant' >> /home/vagrant/Makefile
 echo 'include /vagrant/Makefile' >> /home/vagrant/Makefile
 
-# Start docker
-systemctl enable docker
+# change the docker config to allocate 20G to containers
+# see https://docs.docker.com/articles/systemd/ for info on configuration
+mkdir /etc/systemd/system/docker.service.d
+echo '[Service]' >> /etc/systemd/system/docker.service.d/docker.conf
+echo 'ExecStart=' >> /etc/systemd/system/docker.service.d/docker.conf
+echo "ExecStart=/usr/bin/docker -d -s=devicemapper --storage-opt dm.basesize=20G -H fd:// " \
+    >>  /etc/systemd/system/docker.service.d/docker.conf
+systemctl daemon-reload
+
+# Start docker and set to start on boot
 systemctl start docker
+systemctl enable docker
 
 # Pull official centos7 base image from docker hub
 docker pull centos:7
