@@ -14,9 +14,7 @@ rm /tmp/Dockerfile_$$
 # hostname must match SRV_DNS_NAME used in the response file
 docker run -e DB2INST1_PASSWORD=BigFix1t4Me \
   -e LICENSE=accept --hostname=eval.mybigfix.com --name=bfdocker_install_$$ \
-	bfdocker/besinstaller /bes-install.sh
-
-
+  bfdocker/besinstaller /bes-install.sh
 
 # create a new image with the BigFix instance, tag and clean up
 docker commit bfdocker_install_$$ bfdocker/besserver:$$
