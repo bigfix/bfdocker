@@ -2,7 +2,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if ENV["BF_ACCEPT"] == 'true'
-    config.vm.box = "chef/centos-7.1"
+    config.vm.box = "bento/centos-7.1"
     config.vm.network "forwarded_port", guest: 80, host: 4000
 
     config.vbguest.auto_update = false
