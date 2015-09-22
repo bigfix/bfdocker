@@ -11,15 +11,11 @@ setenforce 1
 echo 127.0.0.1 sandbox.bigfix.com >> /etc/hosts
 
 # Apply updates, required for latest docker
-yum -y update
+#yum -y update
 
 # Run docker install script
 # see https://docs.docker.com/docker/installation/centos/
 curl -sSL https://get.docker.com/ | sh
-
-# Setup Makefile that points to the Makefile in the source directory
-echo 'SOURCE=/vagrant' >> /home/vagrant/Makefile
-echo 'include /vagrant/Makefile' >> /home/vagrant/Makefile
 
 # change the docker config to allocate 20G to containers
 # see https://docs.docker.com/articles/systemd/ for info on configuration
@@ -34,5 +30,9 @@ systemctl daemon-reload
 systemctl start docker
 systemctl enable docker
 
-# Pull official centos7 base image from docker hub
-docker pull centos:7
+# login to docker to get access to the db2express-c image
+docker login -e $1 -u $2 -p $3
+
+# build the evaluation edition
+cd /vagrant/beserver
+bash ./build.sh

@@ -1,14 +1,15 @@
 # script to build an image with an evaluation edition of bes
 # and create an instance of bes by running the installer
 #!/bin/bash
+
 BES_VERSION=9.2.5.130
 
 # replace the default value in Dockerfile with the one set here
 sed -e s/BES_VERSION=.*/BES_VERSION=$BES_VERSION/g Dockerfile \
-    > /tmp/Dockerfile_$$
+    > Dockerfile_$$
 
-docker build -t bfdocker/besinstaller -f /tmp/Dockerfile_$$ .
-rm /tmp/Dockerfile_$$
+docker build -t bfdocker/besinstaller -f Dockerfile_$$ .
+rm Dockerfile_$$
 
 # run the installer in a container
 # hostname must match SRV_DNS_NAME used in the response file

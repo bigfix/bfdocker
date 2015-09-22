@@ -3,11 +3,11 @@ BES_PREREQ_INSTALL="install"
 
 ## Set to true to accept the license
 
-LA_ACCEPT="false"
+LA_ACCEPT="true"
 
 IS_EVALUATION="true"
 
-## set your credentials for the evalution edition
+## set your credentials for the evaluation edition
 
 CREDENTIAL_USER="bigfix"
 CREDENTIAL_EMAIL="docker@bigfix.com"
