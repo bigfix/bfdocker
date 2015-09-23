@@ -33,15 +33,15 @@ containers from the final image.
 
 3.  Set the BF_ACCEPT environment variable to true and export it to accept the BigFix licence. Then run the build script:
 
-  `
-  export BF_ACCEPT=true
-  bash ./build.sh
-  `
+  ```
+  # export BF_ACCEPT=true
+  # bash ./build.sh
+  ```
 
 4.  Start a container:
 
   ```
-  docker run -d -p 52311:52311 -p 52311:52311/udp \
+  # docker run -d -p 52311:52311 -p 52311:52311/udp \
       -e DB2INST1_PASSWORD=BigFix1t4Me \
       -e LICENSE=accept --hostname=eval.mybigfix.com \
       --name=eval.mybigfix.com \
