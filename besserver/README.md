@@ -12,7 +12,7 @@ Build an instance of the evaluation edition of BigFix Server.
 
 The image is based on [ibmcom/db2express-c](https://registry.hub.docker.com/u/ibmcom/db2express-c/) which is CentOS7.
 
-Tested on a CentOS7 host with docker 1.6.0.
+Tested on a CentOS7 host with docker 1.6.0 and 1.8
 
 `build.sh` runs the build process.  The outcome is a docker image named bfdocker/besserver:latest that contains an instance of BigFix Server.
 
@@ -52,3 +52,14 @@ containers from the final image.
 credentials are documented [here](http://www-01.ibm.com/support/knowledgecenter/#!/SS63NW_9.2.0/com.ibm.tivoli.tem.doc_9.2/Platform/Adm/c_types_of_installation_evaluation.html).  The password for EvaluationUser is that set to
 DB2_ADMIN_PWD in `bes-install.rsp`.
 The BigFix Console can be downloaded from http://support.bigfix.com/bes/release/
+
+## Using the Vagrant box
+As an alternative to running this in a docker host a Vagrant file is included.
+This creates a VirtualBox CentOS box (VM), installs and configures docker and then builds the evaluation edition of BigFix server.
+
+Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant](https://www.vagrantup.com).
+
+The Vagrant provisioner requires a docker hub account that has access to the db2express-c image.  See the notice at the top of this page for more details.  The docker hub account credentials should be passed to Vagrant as environment variables.  Set `BF_ACCEPT=true` to accept the BigFix license. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
+
+`$ BF_ACCEPT=true DOCKER_EMAIL=eval@bigfix.com DOCKER_PASSWORD=pwd \
+    DOCKER_USERNAME=bigfixit OHANA=1 vagrant up`

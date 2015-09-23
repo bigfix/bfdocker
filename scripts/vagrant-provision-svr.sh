@@ -33,6 +33,13 @@ systemctl enable docker
 # login to docker to get access to the db2express-c image
 docker login -e $1 -u $2 -p $3
 
-# build the evaluation edition
-cd /vagrant/besserver
+# build docker image with the evaluation edition of BigFix server (besserver)
+cd /vagrant
 bash ./build.sh
+
+# start a docker container running BigFix server (besserver)
+docker run -d -p 52311:52311 -p 52311:52311/udp \
+    -e DB2INST1_PASSWORD=BigFix1t4Me \
+    -e LICENSE=accept --hostname=eval.mybigfix.com \
+    --name=eval.mybigfix.com \
+     bfdocker/besserver /bes-start.sh
