@@ -34,5 +34,5 @@ systemctl enable docker
 docker login -e $1 -u $2 -p $3
 
 # build the evaluation edition
-cd /vagrant/beserver
+cd /vagrant/besserver
 bash ./build.sh
