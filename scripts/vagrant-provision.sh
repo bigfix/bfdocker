@@ -19,8 +19,8 @@ curl -sSL https://get.docker.com/ | sh
 
 # change the docker config to allocate 20G to containers
 # see https://docs.docker.com/articles/systemd/ for info on configuration
-mkdir /etc/systemd/system/docker.service.d
-echo '[Service]' >> /etc/systemd/system/docker.service.d/docker.conf
+mkdir -p /etc/systemd/system/docker.service.d
+echo '[Service]' > /etc/systemd/system/docker.service.d/docker.conf
 echo 'ExecStart=' >> /etc/systemd/system/docker.service.d/docker.conf
 echo "ExecStart=/usr/bin/docker -d -s=devicemapper --storage-opt dm.basesize=20G -H fd:// " \
     >>  /etc/systemd/system/docker.service.d/docker.conf
