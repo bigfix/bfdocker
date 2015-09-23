@@ -3,7 +3,7 @@ BES_PREREQ_INSTALL="install"
 
 ## Set to true to accept the license
 
-LA_ACCEPT="true"
+LA_ACCEPT="false"
 
 IS_EVALUATION="true"
 

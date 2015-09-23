@@ -12,7 +12,7 @@ RUN curl http://software.bigfix.com/download/bes/92/ServerInstaller_$BES_VERSION
 RUN tar -xzvf /ServerInstaller.tgz
 
 COPY ./db2-start.sh /
-COPY ./bes-install.rsp /
+COPY ./bes-install-accept.rsp /
 COPY ./bes-install.sh /
 COPY ./bes-start.sh /
 RUN chmod u+x /db2-start.sh /bes-install.sh /bes-start.sh

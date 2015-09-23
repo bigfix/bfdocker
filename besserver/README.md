@@ -23,18 +23,20 @@ At this time, neither running BigFix server on CentOS nor runing it in docker co
 
 ## To use
 
-1. Edit the bes-install.rsp
-  1. change `LA_ACCEPT="false"` to true to accept the license.
-  2. review the db2 password and the hostname and change as appropriate.
+1. Review and edit as required the bes-install.rsp file
+  1. review the db2 password and the hostname and change as appropriate.
   3. if you change the default db2 password and hostname ensure you also change
 the values of DB2INST1_PASSWORD and --hostname in build.sh and when you start
 containers from the final image.
 
 2.  To change the version of BigFix edit `build.sh` and set the version using the `BES_VERSION` evnironment variable
 
-3.  Run the build script:
+3.  Set the BF_ACCEPT environment variable to true and export it to accept the BigFix licence. Then run the build script:
 
-  `bash ./build.sh`
+  `
+  export BF_ACCEPT=true
+  bash ./build.sh
+  `
 
 4.  Start a container:
 

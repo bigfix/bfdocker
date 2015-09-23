@@ -35,6 +35,9 @@ docker login -e $1 -u $2 -p $3
 
 # build docker image with the evaluation edition of BigFix server (besserver)
 cd /vagrant
+
+# set BF_ACCEPT so response file is modified by build.sh
+export BF_ACCEPT=true
 bash ./build.sh
 
 # start a docker container running BigFix server (besserver)
