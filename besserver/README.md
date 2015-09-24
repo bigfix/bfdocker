@@ -31,11 +31,10 @@ containers from the final image.
 
 2.  To change the version of BigFix edit `build.sh` and set the version using the `BES_VERSION` evnironment variable
 
-3.  Set the BF_ACCEPT environment variable to true and export it to accept the BigFix licence. Then run the build script:
+3.  Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Then run the build script:
 
   ```
-  # export BF_ACCEPT=true
-  # bash ./build.sh
+  # BF_ACCEPT=true bash ./build.sh
   ```
 
 4.  Start a container:
