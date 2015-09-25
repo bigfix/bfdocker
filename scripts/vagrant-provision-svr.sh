@@ -11,20 +11,16 @@ setenforce 1
 echo 127.0.0.1 sandbox.bigfix.com >> /etc/hosts
 
 # Apply updates, required for latest docker
-yum -y update
+#yum -y update
 
 # Run docker install script
 # see https://docs.docker.com/docker/installation/centos/
 curl -sSL https://get.docker.com/ | sh
 
-# Setup Makefile that points to the Makefile in the source directory
-echo 'SOURCE=/vagrant' >> /home/vagrant/Makefile
-echo 'include /vagrant/Makefile' >> /home/vagrant/Makefile
-
 # change the docker config to allocate 20G to containers
 # see https://docs.docker.com/articles/systemd/ for info on configuration
-mkdir /etc/systemd/system/docker.service.d
-echo '[Service]' >> /etc/systemd/system/docker.service.d/docker.conf
+mkdir -p /etc/systemd/system/docker.service.d
+echo '[Service]' > /etc/systemd/system/docker.service.d/docker.conf
 echo 'ExecStart=' >> /etc/systemd/system/docker.service.d/docker.conf
 echo "ExecStart=/usr/bin/docker -d -s=devicemapper --storage-opt dm.basesize=20G -H fd:// " \
     >>  /etc/systemd/system/docker.service.d/docker.conf
@@ -34,5 +30,18 @@ systemctl daemon-reload
 systemctl start docker
 systemctl enable docker
 
-# Pull official centos7 base image from docker hub
-docker pull centos:7
+# login to docker to get access to the db2express-c image
+docker login -e $1 -u $2 -p $3
+
+# build docker image with the evaluation edition of BigFix server (besserver)
+cd /vagrant
+
+# set BF_ACCEPT to accept licnese so BigFix installation response file is modified by build.sh
+BF_ACCEPT=true bash ./build.sh
+
+# start a docker container running BigFix server (besserver)
+docker run -d -p 52311:52311 -p 52311:52311/udp \
+    -e DB2INST1_PASSWORD=BigFix1t4Me \
+    -e LICENSE=accept --hostname=eval.mybigfix.com \
+    --name=eval.mybigfix.com \
+     bfdocker/besserver /bes-start.sh

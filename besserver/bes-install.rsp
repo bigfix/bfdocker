@@ -7,7 +7,7 @@ LA_ACCEPT="false"
 
 IS_EVALUATION="true"
 
-## set your credentials for the evalution edition
+## set your credentials for the evaluation edition
 
 CREDENTIAL_USER="bigfix"
 CREDENTIAL_EMAIL="docker@bigfix.com"
