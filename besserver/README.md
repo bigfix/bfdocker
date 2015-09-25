@@ -21,23 +21,32 @@ Dockerfile downloads the BigFix server installer and adds files.
 ### Note
 At this time, neither running BigFix server on CentOS nor runing it in docker containers are supported options.  Details of supported platforms can be found in the IBM product documentation [site](http://www-01.ibm.com/support/docview.wss?rs=1015&uid=swg21684809).
 
+
 ## To use
 
+### Increase the default container filesystem
+By default docker is configured to create containers with a 10GB filesystem.  This is too small and needs to be increased.  20GB is suggested.  For RedHat/Cento7 this is done using the docker daemon's --storage-opt options.  See the vagrant-provision-svr.sh script, which shows one way this can be done.
+
+### Build and run
 1. Review and edit as required the bes-install.rsp file
   1. review the db2 password and the hostname and change as appropriate.
-  3. if you change the default db2 password and hostname ensure you also change
+  2. if you change the default db2 password and hostname ensure you also change
 the values of DB2INST1_PASSWORD and --hostname in build.sh and when you start
 containers from the final image.
 
 2.  To change the version of BigFix edit `build.sh` and set the version using the `BES_VERSION` evnironment variable
 
-3.  Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Then run the build script:
+3.  Login to docker hub:
+```
+# docker login -e <email> -u <username> -p <password>
+```
+4. Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Then run the build script:
 
   ```
   # BF_ACCEPT=true bash ./build.sh
   ```
 
-4.  Start a container:
+5.  Start a container:
 
   ```
   # docker run -d -p 52311:52311 -p 52311:52311/udp \
@@ -62,5 +71,6 @@ Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant
 
 The Vagrant provisioner requires a docker hub account that has access to the db2express-c image.  See the notice at the top of this page for more details.  The docker hub account credentials should be passed to Vagrant as environment variables.  Set `BF_ACCEPT=true` to accept the BigFix license. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
-`$ BF_ACCEPT=true DOCKER_EMAIL=eval@bigfix.com DOCKER_PASSWORD=pwd \
-    DOCKER_USERNAME=bigfixit OHANA=1 vagrant up`
+```
+$ BF_ACCEPT=true DOCKER_EMAIL=eval@bigfix.com DOCKER_PASSWORD=pwd DOCKER_USERNAME=bigfixit OHANA=1 vagrant up
+```
