@@ -67,7 +67,7 @@ This creates a VirtualBox CentOS box (VM), installs and configures docker and th
 
 Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant](https://www.vagrantup.com).
 
-The Vagrant provisioner requires a docker hub account that has access to the db2express-c image.  See the notice at the top of this page for more details.  The docker hub account credentials should be passed to Vagrant as environment variables.  Set `BF_ACCEPT=true` to accept the BigFix license. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
+The Vagrant provisioner requires a docker hub account that has access to the db2express-c image.  See the notice at the top of this page for more details.  The docker hub account credentials should be passed to Vagrant as environment variables.  Set `BF_ACCEPT=true` to accept the BigFix license. Optionally set the BigFix version using BES_VERSION. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
 $ BES_VERSION=9.2.5.130 BF_ACCEPT=true DOCKER_EMAIL=eval@bigfix.com DOCKER_PASSWORD=pwd DOCKER_USERNAME=bigfixit OHANA=1 vagrant up
