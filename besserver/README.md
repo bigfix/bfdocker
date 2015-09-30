@@ -34,19 +34,17 @@ By default docker is configured to create containers with a 10GB filesystem.  Th
 the values of `DB2INST1_PASSWORD` and `--hostname` in `build.sh` and when you start
 containers from the final image.
 
-2.  To change the version of BigFix edit `build.sh` and set the version using the `BES_VERSION` evnironment variable
-
-3.  Login to docker hub:
+2.  Login to docker hub:
 ```
 # docker login -e <email> -u <username> -p <password>
 ```
-4. Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Then run the build script:
+3. Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Optionally set the BigFix version using BES_VERSION Then run the build script:
 
   ```
-  # BF_ACCEPT=true bash ./build.sh
+  # BES_VERSION=9.2.5.130 BF_ACCEPT=true bash ./build.sh
   ```
 
-5.  Start a container:
+4.  Start a container:
 
   ```
   # docker run -d -p 52311:52311 -p 52311:52311/udp \
@@ -72,5 +70,5 @@ Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant
 The Vagrant provisioner requires a docker hub account that has access to the db2express-c image.  See the notice at the top of this page for more details.  The docker hub account credentials should be passed to Vagrant as environment variables.  Set `BF_ACCEPT=true` to accept the BigFix license. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BF_ACCEPT=true DOCKER_EMAIL=eval@bigfix.com DOCKER_PASSWORD=pwd DOCKER_USERNAME=bigfixit OHANA=1 vagrant up
+$ BES_VERSION=9.2.5.130 BF_ACCEPT=true DOCKER_EMAIL=eval@bigfix.com DOCKER_PASSWORD=pwd DOCKER_USERNAME=bigfixit OHANA=1 vagrant up
 ```
