@@ -19,19 +19,19 @@ Tested on a CentOS7 host with docker 1.6.0 and 1.8
 Dockerfile downloads the BigFix server installer and adds files.
 
 ### Note
-At this time, neither running BigFix server on CentOS nor runing it in docker containers are supported options.  Details of supported platforms can be found in the IBM product documentation [site](http://www-01.ibm.com/support/docview.wss?rs=1015&uid=swg21684809).
+At this time, neither running BigFix server on CentOS nor running it in docker containers are supported options.  Details of supported platforms can be found in the IBM product documentation [site](http://www-01.ibm.com/support/docview.wss?rs=1015&uid=swg21684809).
 
 
 ## To use
 
 ### Increase the default container filesystem
-By default docker is configured to create containers with a 10GB filesystem.  This is too small and needs to be increased.  20GB is suggested.  For RedHat/Cento7 this is done using the docker daemon's --storage-opt options.  See the vagrant-provision-svr.sh script, which shows one way this can be done.
+By default docker is configured to create containers with a 10GB filesystem.  This is too small and needs to be increased.  20GB is suggested.  For RedHat7/CentOS7 this is done using the docker daemon's `--storage-opt` options.  See the `vagrant-provision-svr.sh` script, which shows one way this can be done.
 
 ### Build and run
 1. Review and edit as required the bes-install.rsp file
   1. review the db2 password and the hostname and change as appropriate.
   2. if you change the default db2 password and hostname ensure you also change
-the values of DB2INST1_PASSWORD and --hostname in build.sh and when you start
+the values of `DB2INST1_PASSWORD` and `--hostname` in `build.sh` and when you start
 containers from the final image.
 
 2.  To change the version of BigFix edit `build.sh` and set the version using the `BES_VERSION` evnironment variable

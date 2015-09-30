@@ -11,8 +11,10 @@ else
    bes-install-accept.rsp
 fi
 
-BES_VERSION=9.2.5.130
-
+if [[ ! $BES_VERSION ]]
+then
+  BES_VERSION=9.2.5.130
+fi
 # replace the default value in Dockerfile with the one set here
 sed -e s/BES_VERSION=.*/BES_VERSION=$BES_VERSION/g Dockerfile \
     > Dockerfile_$$

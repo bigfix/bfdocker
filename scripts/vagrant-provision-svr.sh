@@ -37,7 +37,7 @@ docker login -e $1 -u $2 -p $3
 cd /vagrant
 
 # set BF_ACCEPT to accept licnese so BigFix installation response file is modified by build.sh
-BF_ACCEPT=true bash ./build.sh
+BF_ACCEPT=true BES_VERSION=$4 bash ./build.sh
 
 # start a docker container running BigFix server (besserver)
 docker run -d -p 52311:52311 -p 52311:52311/udp \
