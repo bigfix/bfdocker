@@ -2,6 +2,7 @@
 
 The Dockerfile will build a basic docker image with the Endpoint Manager agent.
 The agent is configured as follows:
+
 1. Use command polling so it is not necessary for it to bind a network interface on the docker host.
 2. CPU is set to < .5% to allow for larger numbers of containers on a host
 3. Automatic relay selection is enabled.  If the host is a BES Relay then containers can use it as a relay and receive UDP messages from the root server.
