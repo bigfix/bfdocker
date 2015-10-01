@@ -12,14 +12,18 @@ RUN yum -y install \
 # BES Version so it can be modified at runtime
 ENV BES_VERSION=9.2.5.130
 
-ENV AGENT_DOWNLOAD_URL=http://software.bigfix.com/download/bes/92/BESAgent-$BES_VERSION-rhe5.x86_64.rpm
-RUN mkdir -p /etc/opt/BESClient && \
-  curl $AGENT_DOWNLOAD_URL > /tmp/BESAgent.rpm && \
-  rpm -ivh /tmp/BESAgent.rpm
-
-# alternatively copy it from the host
+# download the agent installer or alternatively copy it from the host
 #COPY ./BESAgent.rpm /tmp/BESAgent.rpm
-#RUN rpm -ivh /tmp/BESAgent.rpm
+
+# parse the BES_VERSION number to form the download URL in the form
+# http://software.bigfix.com/download/92/ServerAgent-9.2.5.130-rhe5.x86_64.rpm
+
+RUN echo $BES_VERSION | \
+  sed 's/\([0-9]*\)\(\.\)\([0-9]*\)\(.*\)/http:\/\/software.bigfix.com\/download\/bes\/\1\3\/BESAgent-\1\2\3\4-rhe5.x86_64.rpm/g' \
+	| xargs curl > /tmp/BESAgent.rpm
+
+RUN mkdir -p /etc/opt/BESClient && \
+  rpm -ivh /tmp/BESAgent.rpm
 
 # configure client to use command polling
 # use \\\E to output the \E of \EnterpriseClient with echo's -e option

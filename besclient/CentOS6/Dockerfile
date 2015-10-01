@@ -10,14 +10,19 @@ RUN yum -y install \
 # install the bes client by downloading it from bigfix
 
 # BES Version so it can be modified at runtime
-ENV BES_VERSION=9.2.5.130
 
-ENV AGENT_DOWNLOAD_URL=http://software.bigfix.com/download/bes/92/BESAgent-$BES_VERSION-rhe5.x86_64.rpm
+ENV BES_VERSION=9.2.5.130
 
 # Download the agent or alternatively copy it from the host
 
 #COPY ./BESAgent.rpm /tmp/BESAgent.rpm
-RUN  curl $AGENT_DOWNLOAD_URL > /tmp/BESAgent.rpm
+
+# parse the BES_VERSION number to form the download URL in the form
+# http://software.bigfix.com/download/92/ServerAgent-9.2.5.130-rhe5.x86_64.rpm
+
+RUN echo $BES_VERSION | \
+  sed 's/\([0-9]*\)\(\.\)\([0-9]*\)\(.*\)/http:\/\/software.bigfix.com\/download\/bes\/\1\3\/BESAgent-\1\2\3\4-rhe5.x86_64.rpm/g' \
+	| xargs curl > /tmp/BESAgent.rpm
 
 RUN mkdir -p /etc/opt/BESClient && \
   rpm -ivh /tmp/BESAgent.rpm
@@ -57,4 +62,5 @@ CMD ["/bes-cmd.sh"]
 
 # set default environment variable of bes root server used by bes-cmd.sh to get
 # the masthead
+
 ENV ROOT_SERVER=eval.mybigfix.com:52311

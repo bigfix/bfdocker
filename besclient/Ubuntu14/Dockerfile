@@ -10,12 +10,15 @@ RUN apt-get -y update && \
 # BES Version so it can be modified at runtime
 ENV BES_VERSION=9.2.5.130
 
-ENV AGENT_DOWNLOAD_URL=http://software.bigfix.com/download/bes/92/BESAgent-$BES_VERSION-ubuntu10.amd64.deb
-
 # download the agent or alternatively copy it from the host
 #COPY ./BESAgent.deb /tmp/BESAgent.deb
 
-RUN curl $AGENT_DOWNLOAD_URL > /tmp/BESAgent.deb
+# parse the BES_VERSION number to form the download URL in the form
+# http://software.bigfix.com/download/92/ServerAgent-9.2.5.130-ubuntu10.amd64.deb
+
+RUN echo $BES_VERSION | \
+  sed 's/\([0-9]*\)\(\.\)\([0-9]*\)\(.*\)/http:\/\/software.bigfix.com\/download\/bes\/\1\3\/BESAgent-\1\2\3\4-ubuntu10.amd64.deb/g' \
+	| xargs curl > /tmp/BESAgent.deb
 
 RUN mkdir -p /etc/opt/BESClient && \
   dpkg -i /tmp/BESAgent.deb
