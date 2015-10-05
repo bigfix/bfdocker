@@ -12,7 +12,7 @@ ENV BES_VERSION=9.2.5.130
 # http://software.bigfix.com/download/92/ServerInstaller-9.2.5.130-rhe6.x86_64.tgz
 
 RUN echo $BES_VERSION | \
-  sed 's/\([0-9]*\)\(\.\)\([0-9]*\)\(.*\)/http:\/\/software.bigfix.com\/download\/bes\/\1\3\/ServerInstaller-\1\2\3\4-rhe6.x86_64.tgz/g' \
+  sed 's/\([0-9]*\)\(\.\)\([0-9]*\)\(.*\)/http:\/\/software.bigfix.com\/download\/bes\/\1\3\/ServerInstaller_\1\2\3\4-rhe6.x86_64.tgz/g' \
 	| xargs curl > /ServerInstaller.tgz
 
 RUN tar -xzvf /ServerInstaller.tgz
