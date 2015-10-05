@@ -1,16 +1,8 @@
-## IMPORTANT NOTICE
-This build is based on a db2express-c image provided by IBM.
-Access to the image has been restricted. Currently the image is not publicly available on the docker hub.
-To get the db2express-c image you can request access from the image owners.
-See [here](https://registry.hub.docker.com/u/ibmcom/db2express-c/) for details  
-
-Alternatively the docker file used by IBM to create the image is available [here](https://github.com/IMC3ofC/db2express-c.docker) on github.  Using this will require you to build the db2express-c image and modify this project's Dockerfile to refer to your own db2express-c image.
-
 ## Overview
 
 Build an instance of the evaluation edition of BigFix Server.
 
-The image is based on [ibmcom/db2express-c](https://registry.hub.docker.com/u/ibmcom/db2express-c/) which is CentOS7.
+The image is based on [ibmcom/db2express-c](https://registry.hub.docker.com/r/ibmcom/db2express-c/) which is CentOS7.
 
 Tested on a CentOS7 host with docker 1.6.0 and 1.8
 
@@ -34,17 +26,13 @@ By default docker is configured to create containers with a 10GB filesystem.  Th
 the values of `DB2INST1_PASSWORD` and `--hostname` in `build.sh` and when you start
 containers from the final image.
 
-2.  Login to docker hub:
-```
-# docker login -e <email> -u <username> -p <password>
-```
-3. Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Optionally set the BigFix version using BES_VERSION Then run the build script:
+2. Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Optionally set the BigFix version using BES_VERSION Then run the build script:
 
   ```
   # BES_VERSION=9.2.5.130 BF_ACCEPT=true bash ./build.sh
   ```
 
-4.  Start a container:
+3.  Start a container:
 
   ```
   # docker run -d -p 52311:52311 -p 52311:52311/udp \
@@ -54,7 +42,7 @@ containers from the final image.
 	     bfdocker/besserver /bes-start.sh
   ```
 
-5. Connect a BigFix Console to the docker host.  
+4. Connect a BigFix Console to the docker host.  
 
   The evaluation edition user
 credentials are documented [here](http://www-01.ibm.com/support/knowledgecenter/#!/SS63NW_9.2.0/com.ibm.tivoli.tem.doc_9.2/Platform/Adm/c_types_of_installation_evaluation.html).  The password for EvaluationUser is that set to
@@ -67,8 +55,8 @@ This creates a VirtualBox CentOS box (VM), installs and configures docker and th
 
 Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant](https://www.vagrantup.com).
 
-The Vagrant provisioner requires a docker hub account that has access to the db2express-c image.  See the notice at the top of this page for more details.  The docker hub account credentials should be passed to Vagrant as environment variables.  Set `BF_ACCEPT=true` to accept the BigFix license. Optionally set the BigFix version using BES_VERSION. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
+Set `BF_ACCEPT=true` to accept the BigFix license. Optionally set the BigFix version using BES_VERSION. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_VERSION=9.2.5.130 BF_ACCEPT=true DOCKER_EMAIL=eval@bigfix.com DOCKER_PASSWORD=pwd DOCKER_USERNAME=bigfixit OHANA=1 vagrant up
+$ BES_VERSION=9.2.5.130 BF_ACCEPT=true OHANA=1 vagrant up
 ```
