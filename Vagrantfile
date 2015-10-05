@@ -22,8 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provision "shell" do |s|
       s.path = "./scripts/vagrant-provision-svr.sh"
-      ARGS = ENV["DOCKER_EMAIL"] + ' ' + ENV["DOCKER_USERNAME"] \
-        + ' ' + ENV["DOCKER_PASSWORD"] + ' ' + ENV["BES_VERSION"]
+      ARGS = ENV["BES_VERSION"]
       s.args = ARGS
     end
   end
