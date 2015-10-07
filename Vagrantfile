@@ -24,8 +24,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vm.network :private_network, type: "dhcp"
     end
 
-    # turn off the vbguest auto update, it slows provisioning
-    config.vbguest.auto_update = false
+    # optional cofigure the vbguest plugin
+    if ENV["VBGUEST_AUTO"]
+      config.vbguest.auto_update = ENV["VBGUEST_AUTO"]
+    end
 
     config.vm.provision "shell" do |s|
       s.path = "./scripts/vagrant-provision-svr.sh"
