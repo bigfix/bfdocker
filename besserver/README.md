@@ -55,8 +55,11 @@ This creates a VirtualBox CentOS box (VM), installs and configures docker and th
 
 Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant](https://www.vagrantup.com).
 
-Set `BF_ACCEPT=true` to accept the BigFix license. Optionally set the BigFix version using BES_VERSION. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
+1. Set `BF_ACCEPT=true` to accept the BigFix license.
+2. Optionally set the BigFix version using BES_VERSION.
+3. Optionally set VM_BOX to the location of a base vagrant box
+4. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_VERSION=9.2.5.130 BF_ACCEPT=true OHANA=1 vagrant up
+$ BES_VERSION=9.2.5.130 BF_ACCEPT=true OHANA=1 VM_BOX=https://boxes.bigfix.com/centos7-1 vagrant up
 ```
