@@ -60,6 +60,7 @@ Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant
 1. Set `BF_ACCEPT=true` to accept the BigFix license.
 2. Optionally set the BigFix version using BES_VERSION.
 3. Optionally set VM_BOX to the location of a base vagrant box
+4. Optionally set `BES_PORTS=false` to turn off forwarding the BigFix ports 52311 and 80 to 52311 and 8080 on the Vagrant host respectively.
 4. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
