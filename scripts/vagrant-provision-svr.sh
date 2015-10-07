@@ -41,6 +41,7 @@ docker run -d  \
     -e DB2INST1_PASSWORD=BigFix1t4Me \
     -e LICENSE=accept --hostname=eval.mybigfix.com \
     --name=eval.mybigfix.com \
+    -p 80:80 \
     -p 52311:52311 -p 52311:52311/udp \
     --restart=on-failure:10 \
      bfdocker/besserver /bes-start.sh

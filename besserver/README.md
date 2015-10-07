@@ -35,10 +35,12 @@ containers from the final image.
 3.  Start a container:
 
   ```
-  # docker run -d -p 52311:52311 -p 52311:52311/udp \
+  # docker run -d  \
       -e DB2INST1_PASSWORD=BigFix1t4Me \
       -e LICENSE=accept --hostname=eval.mybigfix.com \
       --name=eval.mybigfix.com \
+      -p 80:80 \
+      -p 52311:52311 -p 52311:52311/udp \
 	     bfdocker/besserver /bes-start.sh
   ```
 
