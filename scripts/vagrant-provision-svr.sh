@@ -37,8 +37,10 @@ cd /vagrant/besserver
 BF_ACCEPT=true BES_VERSION=$1 bash ./build.sh
 
 # start a docker container running BigFix server (besserver)
-docker run -d -p 52311:52311 -p 52311:52311/udp \
+docker run -d  \
     -e DB2INST1_PASSWORD=BigFix1t4Me \
     -e LICENSE=accept --hostname=eval.mybigfix.com \
     --name=eval.mybigfix.com \
+    -p 52311:52311 -p 52311:52311/udp \
+    --restart=on-failure:10 \
      bfdocker/besserver /bes-start.sh
