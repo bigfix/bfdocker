@@ -7,11 +7,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     VM_BOX=ENV["VM_BOX"] || "bento/centos-7.1"
     config.vm.box = VM_BOX
 
-
     config.vm.provider "virtualbox" do |v, override|
       v.customize ["modifyvm", :id, "--cpus", 2]
       # base box hasn't enough memory for DB2
       v.customize ["modifyvm", :id, "--memory", 4096]
+    end
+
+    unless ENV["BES_PORTS"] == 'false'
+      config.vm.network :forwarded_port, guest: 52311, host: 52311
+      config.vm.network :forwarded_port, guest: 80, host: 8080
     end
 
     # put box on the Virtualbox private network when OHANA is set
