@@ -1,0 +1,50 @@
+##IEM GENERATED RESPONSE FILE
+## http://www-01.ibm.com/support/knowledgecenter/#!/SS63NW_9.2.0/com.ibm.tivoli.tem.doc_9.2/Platform/Adm/c_installing_the_primary_server_onlinux_silent.html
+##
+
+BES_PREREQ_INSTALL="install"
+
+## Set to true to accept the license
+
+LA_ACCEPT="true"
+
+IS_EVALUATION="false"
+
+## set your credentials for the evaluation edition
+
+CREDENTIAL_USER="bigfix"
+CREDENTIAL_EMAIL="docker@bigfix.com"
+CREDENTIAL_ORG="bigfix"
+
+## set the dns name that'll be in the masthead
+## this must match the hostname of the docker container and the hostname used
+## in build.sh
+
+SRV_DNS_NAME="eval.mybigfix.com"
+
+BES_SERVER_PORT="52311"
+WR_WWW_PORT="80"
+CONF_FIREWALL="no"
+
+## db2 password must match that used when starting the docker containers
+## and used in build.sh
+
+INSTALL_DB2="no"
+
+LOCAL_DATABASE="false"
+
+DB2_HOSTNAME="remdb.mybigfix.com"
+DB2_CONN_USER="db2inst1"
+DB2_CONN_PWD="BigFix1t4Me"
+DB2_ADMIN_USER="db2inst1"
+DB2_ADMIN_PWD="BigFix1t4Me"
+DB2_PORT="50000"
+
+BES_SETUP_TYPE="prodlic"
+
+BES_LIC_FOLDER="/license"
+BES_CERT_FILE="/license/eval_license.crt"
+BES_LICENSE_PVK="/license/eval_license.pvk"
+BES_LICENSE_PVK_PWD="BigFix1t4Me"
+
+USE_PROXY="false"

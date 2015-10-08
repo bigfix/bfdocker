@@ -15,7 +15,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     unless ENV["BES_PORTS"] == 'false'
       config.vm.network :forwarded_port, guest: 52311, host: 52311
-      config.vm.network :forwarded_port, guest: 80, host: 8080
+      config.vm.network :forwarded_port, guest: 80, host: 9080
+      config.vm.network :forwarded_port, guest: 8080, host: 8080
     end
 
     # put box on the Virtualbox private network when OHANA is set
