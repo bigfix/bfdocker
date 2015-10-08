@@ -24,8 +24,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vm.network :private_network, type: "dhcp"
     end
 
-    # optional cofigure the vbguest plugin
-    if ENV["VBGUEST_AUTO"]
+    # optionally turn off vbguest, place inside this test to stop it throwing
+    # error if vbguest gem is not installed
+    if ENV["VBGUEST_AUTO"] == 'false'
       config.vbguest.auto_update = ENV["VBGUEST_AUTO"]
     end
 
