@@ -10,7 +10,7 @@ remdb:
   command: db2start
 
 # BigFix server
-beserver:
+besserver:
   build: .
   container_name: rembf.mybigfix.com
   ports:
@@ -23,4 +23,4 @@ beserver:
     BES_INSTALL_FILE: /bes-install-prod.rsp
   command: /bes-start.sh
   links:
-    - remdb:remdb.mybigfix.com    
+    - remdb:remdb.mybigfix.com
