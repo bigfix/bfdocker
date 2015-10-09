@@ -31,10 +31,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vbguest.auto_update = ENV["VBGUEST_AUTO"]
     end
 
-    config.vm.provision "shell" do |s|
-      s.path = "./scripts/vagrant-provision-svr.sh"
-      ARGS = ENV["BES_VERSION"]
-      s.args = ARGS
+    config.vm.provision "common" , type: "shell" do |c|
+        c.path = "./scripts/vagrant-provision-common.sh"
+    end
+
+    # using provisioner names only works with vagrant provsion and
+    # doesn't work with vagrant up.
+    #https://github.com/mitchellh/vagrant/issues/5139
+    # So control what type of bes server is built using environment.
+    config.vm.provision "besserver", type: "shell" do |s|
+      # default to evaluation edition
+      if ENV["BES_CONFIG"] == 'remdb'
+        s.path = "./scripts/vagrant-provision-remdb.sh"
+      else
+        s.path = "./scripts/vagrant-provision-svr.sh"
+        ARGS = ENV["BES_VERSION"]
+        s.args = ARGS
+      end
     end
   end
 end
