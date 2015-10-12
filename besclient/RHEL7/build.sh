@@ -13,3 +13,5 @@ sed -e s/BES_VERSION=.*/BES_VERSION=$BES_VERSION/g Dockerfile \
 # build an image that contains the BES installer
 docker build -t bfdocker/rhel7:$BES_VERSION -f Dockerfile_$$ .
 rm Dockerfile_$$
+
+docker tag bfdocker/rhel7:$BES_VERSION bfdocker/rhel7:latest
