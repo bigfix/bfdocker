@@ -1,0 +1,6 @@
+besclient_ubuntu14:
+  build: .
+  environment:
+    ROOT_SERVER: eval.mybigfix.com:52311
+  external_links:
+    - rembf.mybigfix.com:eval.mybigfix.com

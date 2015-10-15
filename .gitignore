@@ -1,3 +1,8 @@
  .vagrant
  Dockerfile_*
  bes-install-accept.rsp
+
+besserver/remotedb/license/*.crt
+besserver/remotedb/license/*.pvk
+besserver/remotedb/license/*.afxm
+besserver/remotedb/license/*.BESLicenseAuthorization

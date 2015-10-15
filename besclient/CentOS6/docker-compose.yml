@@ -1,0 +1,6 @@
+besclient_centos6:
+  build: .
+  environment:
+    ROOT_SERVER: eval.mybigfix.com:52311
+  external_links:
+    - rembf.mybigfix.com:eval.mybigfix.com

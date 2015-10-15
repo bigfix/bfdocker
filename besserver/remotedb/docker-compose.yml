@@ -1,0 +1,28 @@
+# Remote database container (service)
+remdb:
+  image: ibmcom/db2express-c
+  command: db2start
+  container_name: remdb.mybigfix.com
+  environment:
+    DB2INST1_PASSWORD: BigFix1t4Me
+    LICENSE: accept
+  ports:
+    - "50000:50000"
+
+# BigFix server
+besserver:
+  build: .
+  command: /bes-start.sh
+  container_name: rembf.mybigfix.com
+  environment:
+    DB2INST1_PASSWORD: BigFix1t4Me
+    LICENSE: accept
+    BES_INSTALL_FILE: /bes-install-prod.rsp
+  hostname: eval
+  domainname: mybigfix.com
+  links:
+    - remdb:remdb.mybigfix.com
+  ports:
+    - "52311:52311"
+    - "52311:52311/udp"
+    - "8080:8080"
