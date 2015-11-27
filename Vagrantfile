@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # optionally turn off vbguest, place inside this test to stop it throwing
     # error if vbguest gem is not installed
     if ENV["VBGUEST_AUTO"] == 'false'
-      config.vbguest.auto_update = false 
+      config.vbguest.auto_update = false
     end
 
     config.vm.provision "common" , type: "shell" do |c|
@@ -37,7 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # using provisioner names only works with vagrant provsion and
     # doesn't work with vagrant up.
-    #https://github.com/mitchellh/vagrant/issues/5139
+    # https://github.com/mitchellh/vagrant/issues/5139
     # So control what type of bes server is built using environment.
     config.vm.provision "besserver", type: "shell" do |s|
       # default to evaluation edition

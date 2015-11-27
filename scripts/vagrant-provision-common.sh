@@ -1,6 +1,6 @@
 #!/bin/bash
 echo running commmon provisioner
-
+cp /vagrant/resources/motd /etc/motd
 set -e
 set -x
 
