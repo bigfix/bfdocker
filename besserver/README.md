@@ -29,7 +29,7 @@ containers from the final image.
 2. Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Optionally set the BigFix version using BES_VERSION Then run the build script:
 
   ```
-  # BES_VERSION=9.2.5.130 BF_ACCEPT=true bash ./build.sh
+  # BES_VERSION=9.2.6.94 BF_ACCEPT=true bash ./build.sh
   ```
 
 3.  Start a container:
@@ -64,5 +64,5 @@ Prerequisites for this are [VirtualBox](https://www.virtualbox.org) and [Vagrant
 4. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_VERSION=9.2.5.130 BF_ACCEPT=true OHANA=1 vagrant up
+$ BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
 ```
