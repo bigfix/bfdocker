@@ -49,5 +49,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         s.args = ARGS
       end
     end
+
+    # configure some client containers
+    config.vm.provision "besclient", type: "shell" do |bc|
+      if ENV["BES_CLIENT"]
+        bc.path = "./scripts/vagrant-provision-client.sh"
+        BC_ARGS = ENV["BES_CLIENT"]
+        bc.args = BC_ARGS
+      end
+    end
   end
 end
