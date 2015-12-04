@@ -17,9 +17,9 @@ The build will download the bigfix agent package from https://support.bigfix.com
 
 1. Check the version of your BigFix server and its compatible agents.  See the BigFix support [site](http://support.bigfix.com/bes/release/) for information
 
-2. Build the image using the build script, passing the version of BigFix agent via the environment.  The default value is 9.2.5.130
+2. Build the image using the build script, passing the version of BigFix agent via the environment.  The default value is 9.2.6.94
 ```
-$ sudo BES_VERSION=9.2.5.130 bash ./build.sh
+$ sudo BES_VERSION=9.2.6.94 bash ./build.sh
 ```
 3. Run container in daemon mode, passing in the `ROOT_SERVER` environment variable set to name and port of the root server. The agent will start, download the masthead and register with the root server. You should see it appear in the console as a computer. For example:
 
