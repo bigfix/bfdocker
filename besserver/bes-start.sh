@@ -1,6 +1,5 @@
-# fire up bd2 and bes
-
 #!/bin/bash
+# fire up bd2 and bes
 /db2-start.sh
 
 service besserver start
