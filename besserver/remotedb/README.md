@@ -9,4 +9,4 @@ To use existing and existing license set the docker environment `-e BES_INSTALL_
 
 To use a license authorization file set the docker environment  `-e BES_INSTALL_FILE=bes-install-auth.rsp`
 
-By default all passwords are `BigFix1t4Me` and the inital BigFix user is `IEMAdmin`
+By default all passwords are `BigFix1t4Me` and the inital BigFix user is `IEMAdmin`.  These are set in the response files (bes-install-auth.rsp, bes-install-prod.rsp).  If you want to use different passwords edit these files.
