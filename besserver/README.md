@@ -100,6 +100,9 @@ To use
 
 ```
 <<<<<<< HEAD
+$ BES_CONFIG=remdb BES_CLIENT=1 BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 $ BES_CONFIG=remdb BES_CLIENT=1 BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
 =======
@@ -108,4 +111,5 @@ $ BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
 =======
 $ BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
 >>>>>>> 26e16d0b8fbdf27052198260ca045e24c5a75d01
+>>>>>>> master
 ```

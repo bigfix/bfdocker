@@ -51,7 +51,11 @@ function formatCVEData(cvesFile, callback, thisRef) {
     }
     var name = '' + date.getFullYear() +'' + month  + '' + dayOfMonth + '.' + hour +'' + minutes + '' + seconds + '.' + milliSeconds + '.1 Mocked - QRadar Data';
     var timeStamp = date.getHours() +  date.getMinutes() + date.getSeconds();
+<<<<<<< HEAD
+    postStream.write('<?xml version="1.0"?>\n<BESAPI>\n<DashboardData>\n<Dashboard>' + process.argv[2] +'</Dashboard>\n<Name>' + "assets" + '</Name>\n<IsPrivate>false</IsPrivate>\n<Value>{"assets":[');
+=======
     postStream.write('<?xml version="1.0"?>\n<BESAPI>\n<DashboardData>\n<Dashboard>' + process.argv[2] +'</Dashboard>\n<Name>' + name + '</Name>\n<IsPrivate>false</IsPrivate>\n<Value>{"name":"'+ name +'","assets":[');
+>>>>>>> master
     streamer.on('match', createAssets);
     streamer.on('end', closeXML);
     fs.createReadStream(cvesFile).pipe(saxParser);

@@ -2,9 +2,13 @@
 ./scripts/vagrant-provision-remdb.sh
 ./scripts/vagrant-provision-svr.sh
 ./besserver/setupPluginServiceAndRESTAPI.sh
+<<<<<<< HEAD
+./scripts/vagrant-provision-dash-var.sh
+=======
 ./scripts/vagrant-provision-copyRestApiToBFServer.sh
 ./scripts/vagrant-provision-dash-var.sh
 ./vagrant-provision-dash-var-commands.sh
+>>>>>>> master
 ./scripts/vagrant-provision-client.sh
 ./besserver/bes-install.sh
 ./besserver/bes-start.sh

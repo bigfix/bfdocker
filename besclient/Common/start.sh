@@ -5,6 +5,6 @@
 # $4 sleep between container startup
 #!/bin/bash
 for (( i = 0; i < $1; i++ )); do
-	docker run -d --hostname=$3$i --name=$3$i --link=eval.mybigfix.com $2
+	docker run -d --hostname=$3$i --name=$3$i $2
 	sleep $4
 done
