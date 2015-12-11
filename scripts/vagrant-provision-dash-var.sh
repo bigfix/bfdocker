@@ -2,4 +2,4 @@
 echo -----------------------------
 echo Running CLI_TOOL
 echo -----------------------------
-docker exec -it eva.mybigfix.com /vagrant-provision-dash-var-commands.sh
+docker exec -it eval.mybigfix.com /vagrant-provision-dash-var-commands.sh
