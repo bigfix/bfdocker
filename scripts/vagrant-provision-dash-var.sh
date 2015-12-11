@@ -1,6 +1,5 @@
 #!/bin/bash
 echo -----------------------------
-<<<<<<< HEAD
 echo Sleeping for 180 seconds
 echo -----------------------------
 sleep 180
@@ -34,7 +33,3 @@ echo -----------------------------
 echo Running postDashboardData.js
 echo -----------------------------
 /node/node-v0.12.7-linux-x64/bin/node postDashboardData.js postStreamBody.xml qui.ojo localhost 52311 EvaluationUser BigFix1t4Me
-
-echo Running CLI_TOOL
-echo -----------------------------
-docker exec -it eval.mybigfix.com /vagrant-provision-dash-var-commands.sh

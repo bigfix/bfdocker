@@ -23,12 +23,5 @@ COPY ./bes-install-accept.rsp /
 COPY ./bes-install.sh /
 COPY ./bes-start.sh /
 COPY ./setupPluginServiceAndRESTAPI.sh /
-<<<<<<< HEAD
 COPY ./ibm-1.2.0.6-node-v0.12.7-linux-x64.tar.gz /
 RUN chmod u+x /db2-start.sh /bes-install.sh /bes-start.sh /setupPluginServiceAndRESTAPI.sh
-=======
-COPY ./vagrant-provision-dash-var-commands.sh /
-COPY ./cli_tool /
-COPY ./ibm-1.2.0.6-node-v0.12.7-linux-x64.tar.gz /
-RUN chmod u+x /db2-start.sh /bes-install.sh /bes-start.sh /setupPluginServiceAndRESTAPI.sh /vagrant-provision-dash-var-commands.sh
->>>>>>> master
