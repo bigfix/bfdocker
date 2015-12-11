@@ -55,7 +55,7 @@ log()
 ##
 executeEnablePostRequest()
 {
-   log "About to execute: curl  --tlsv1.2 -s --header Authorization: Basic <username>:<password>' -w "%{http_code}" --insecure  -X POST --data-binary @$XMLFILE https://${SERVERDNSNAME}:${IEMSERVERPORT}/api/sites"   
+   log "About to execute: curl  --tlsv1.2 -s --header Authorization: Basic <user:password>' -w "%{http_code}" --insecure  -X POST --data-binary @$XMLFILE https://${SERVERDNSNAME}:${IEMSERVERPORT}/api/sites"   
    returncode="$(curl  --tlsv1.2 -s --header "Authorization:Basic ${IEMUSER}" -w "%{http_code}" --insecure -X POST --data-binary @${XMLFILE} https://${SERVERDNSNAME}:${IEMSERVERPORT}/api/sites -o /dev/null)"
 
    if [[ "$returncode" -ne "200" ]]; then
@@ -98,7 +98,9 @@ handleInputParameters()
          ;;
 
          -iemuser)
-            IEMUSER=$1; export IEMUSER
+            IEMUSER1=$1;
+            IEMUSER=$(echo -ne $IEMUSER1 | base64); export IEMUSER
+            echo $IEMUSER;
             shift
          ;;
 	
@@ -208,7 +210,7 @@ if [ -n "$SITENAMESTRING" ]; then
    for site in "${siteList[@]}"; do
 	  ## Create xml parameter file and execute POST request
 	  XMLFILE="${LOGFILEDIR}/${site}.xml"
-      MASTHEADFILENAME="/vagrant/${mastheadDir}/${site}.efxm"
+      MASTHEADFILENAME="/${mastheadDir}/${site}.efxm"
       if [ -f "$MASTHEADFILENAME" ]; then
          writeXMLFile
 	  else
