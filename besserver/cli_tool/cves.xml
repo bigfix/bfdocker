@@ -3,6 +3,60 @@
 	<Query Resource="(name of it, id of it, concatenation &quot;, &quot; of unique values of cve id lists of relevant fixlets whose (cve id list of it is not &quot;N/A&quot; and cve id list of it is not &quot;Unspecified&quot; and cve id list of it is not &quot;&quot;) of it) of bes computers">
 		<Result>
 			<Tuple>
+<<<<<<< HEAD
+				<Answer type="string">centos7Endpoint3</Answer>
+				<Answer type="integer">545196</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">ubuntu14Endpoint2</Answer>
+				<Answer type="integer">1127274</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">centos7Endpoint5</Answer>
+				<Answer type="integer">2366666</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">ubuntu14Endpoint5</Answer>
+				<Answer type="integer">2808273</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">ubuntu14Endpoint4</Answer>
+				<Answer type="integer">5278930</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">ubuntu14Endpoint3</Answer>
+				<Answer type="integer">5432073</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">eval.mybigfix.com</Answer>
+				<Answer type="integer">9506709</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">centos7Endpoint2</Answer>
+				<Answer type="integer">11238094</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">centos7Endpoint4</Answer>
+				<Answer type="integer">13803872</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">centos7Endpoint1</Answer>
+				<Answer type="integer">15347565</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">ubuntu14Endpoint1</Answer>
+				<Answer type="integer">16467565</Answer>
+=======
 				<Answer type="string">SIWW14EMMX-012</Answer>
 				<Answer type="integer">1202660</Answer>
 				<Answer type="string">CVE-2014-0318; CVE-2014-1819; CVE-2014-4064, CVE-2014-3566, CVE-2015-0008, CVE-2015-1635, CVE-2015-1643; CVE-2015-1644, CVE-2015-1648, CVE-2015-1672, CVE-2015-1673, CVE-2015-1702, CVE-2015-1756, CVE-2015-1758, CVE-2015-1769, CVE-2015-2364, CVE-2015-2370, CVE-2015-2371, CVE-2015-2373, CVE-2015-2374, CVE-2015-2417; CVE-2015-2416, CVE-2015-2423, CVE-2015-2428; CVE-2015-2429; CVE-2015-2430, CVE-2015-2432; CVE-2015-2458; CVE-2015-2459; CVE-2015-2460; CVE-2015-2461; CVE-2015-2462; CVE-2015-2435; CVE-2015-2455; CVE-2015-2456; CVE-2015-2463; CVE-2015-2464; CVE-2015-2433; CVE-2015-2453; CVE-2015-2454; CVE-2015-2465, CVE-2015-2460; CVE-2015-2455; CVE-2015-2463; CVE-2015-2464; CVE-2015-2462; CVE-2015-2456, CVE-2015-2472</Answer>
@@ -60,11 +114,16 @@
 			<Tuple>
 				<Answer type="string">ubuntu14DockerInstance1</Answer>
 				<Answer type="integer">16348894</Answer>
+>>>>>>> master
 				<Answer type="string"></Answer>
 			</Tuple>
 		</Result>
 		<Evaluation>
+<<<<<<< HEAD
+			<Time>153.206ms</Time>
+=======
 			<Time>238.59ms</Time>
+>>>>>>> master
 			<Plurality>Plural</Plurality>
 		</Evaluation>
 	</Query>
