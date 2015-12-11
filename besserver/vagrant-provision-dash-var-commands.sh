@@ -17,7 +17,7 @@ mkdir /node
 echo -----------------------------
 echo Untarring node
 echo -----------------------------
-tar -xzf /ibm-1.2.0.6-node-v0.12.7-linux-x64.tar.gz -C /node
+tar -xvf /ibm-1.2.0.6-node-v0.12.7-linux-x64.tar.gz -C /node
 
 echo -----------------------------
 echo doing cd /cli_tool
