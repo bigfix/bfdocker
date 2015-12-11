@@ -1,0 +1,20 @@
+{
+  "name": "node",
+  "version": "0.0.0",
+  "description": "***************************************************************\r * Read me to explain what the scrtipts do and how to use them *\r ***************************************************************",
+  "main": "app.js",
+  "dependencies": {
+    "properties-reader": "0.0.10",
+    "saxpath": "^0.6.2",
+    "sax": "^1.1.1",
+    "xml2js": "^0.4.10",
+    "xmlbuilder": "^2.6.4",
+    "request": "^2.60.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "divillyp",
+  "license": "ISC"
+}

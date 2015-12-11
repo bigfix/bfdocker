@@ -9,6 +9,8 @@ service besgatherdb start
 service beswebreports start
 service besclient start
 
+/setupPluginServiceAndRESTAPI.sh
+
 while [[ true ]]; do
 	sleep 600
 done

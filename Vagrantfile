@@ -49,5 +49,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         s.args = ARGS
       end
     end
+
+    # configure some client containers
+    config.vm.provision "besclient", type: "shell" do |bc|
+      if ENV["BES_CLIENT"]
+        bc.path = "./scripts/vagrant-provision-client.sh"
+        BC_ARGS = ENV["BES_CLIENT"]
+        bc.args = BC_ARGS
+      end
+    end
+
+    # configure dashboardvariable with data
+    config.vm.provision "dashvar", type: "shell" do |dv|
+      if ENV["DASH_VAR"]
+        dv.path = "./scripts/vagrant-provision-dash-var.sh"
+        DV_ARGS = ENV["DASH_VAR"]
+        dv.args = DV_ARGS
+      end
+    end
   end
 end

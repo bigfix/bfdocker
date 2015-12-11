@@ -3,7 +3,7 @@
 # script to build an image with a given verion of BigFix agent
 if [[ ! $BES_VERSION ]]
 then
-  BES_VERSION=9.2.5.130
+  BES_VERSION=9.2.6.94
 fi
 
 # replace the default value in Dockerfile with the one set here
