@@ -10,6 +10,7 @@ service beswebreports start
 service besclient start
 
 /setupPluginServiceAndRESTAPI.sh
+/auto-enable-external-sites.sh
 
 while [[ true ]]; do
 	sleep 600
