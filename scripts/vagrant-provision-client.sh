@@ -25,8 +25,9 @@ BES_VERSION=9.2.6.94 bash ./build.sh
 ############################################################################################
 ############################################################################################
 echo Starting containers
+NUM=$(($1+1))
 # start a docker containers
-for (( i = 1; i < 6; i++ )); do
+for (( i = 1; i < $NUM; i++ )); do
 	echo Starting centos7 container
 	docker run --name="centos7Endpoint"$i --hostname="centos7Endpoint"$i -d -e "ROOT_SERVER=eval.mybigfix.com:52311" \
     --restart=on-failure:10 \
