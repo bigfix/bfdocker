@@ -4,6 +4,7 @@ import datetime
 import time
 import requests
 import xml.etree.ElementTree as ET
+import base64
 
 """Description:
 	Module performs a GET request to return a list of analysis for the given site. If an analysis is found it returns True, else it returns False.
@@ -81,7 +82,7 @@ def main():
 		exit(1)
 	
 	platformName = sys.argv[1]
-	iemCreds = sys.argv[2]
+	iemCreds = base64.standard_b64encode(sys.argv[2])
 	siteNames = sys.argv[3]
 	checkGatheredTimeOutLength = sys.argv[4]
 	timeOutTime = datetime.datetime.now() + datetime.timedelta(minutes=int(checkGatheredTimeOutLength))
@@ -94,7 +95,11 @@ def main():
 	numberSitesGathered = 0
 	numberOfSites = len(siteList)
 	sitesGathered = list()
-	serverDNS = platformName + "." + domain
+	if domain == "NONE":
+		print "No domain name provided..."
+		serverDNS = platformName
+	else:
+		serverDNS = platformName + "." + domain
 	
 	#check arguements are valid
 	arguementErrors = ""
@@ -125,7 +130,7 @@ def main():
 				for gatheredSiteName in sitesGathered:
 					if gatheredSiteName in siteList:
 						siteList.remove(gatheredSiteName)
-				print "Waiting 15 seconds before checking again..."
+				print "Waiting " + waitTime + " seconds before checking again..."
 				time.sleep(float(waitTime))
 			
 		if numberSitesGathered < numberOfSites:
