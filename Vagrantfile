@@ -1,5 +1,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
+
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if ENV["BF_ACCEPT"] == 'true'
 
@@ -29,6 +31,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # error if vbguest gem is not installed
     if ENV["VBGUEST_AUTO"] == 'false'
       config.vbguest.auto_update = false
+    end
+
+    config.vm.provision "conversion" , type: "shell" do |cvn|
+        cvn.path = "./convertDosToUnix.sh"
     end
 
     config.vm.provision "common" , type: "shell" do |c|

@@ -4,7 +4,7 @@
 <Dashboard>qui.ojo</Dashboard>
 <Name>assets</Name>
 <IsPrivate>false</IsPrivate>
-<Value>{"assets":[{"fqdn":"centos7Endpoint3","besid":"545196","cves":[],"risk":0},{"fqdn":"ubuntu14Endpoint2","besid":"1127274","cves":[],"risk":0},{"fqdn":"centos7Endpoint5","besid":"2366666","cves":[],"risk":0},{"fqdn":"ubuntu14Endpoint5","besid":"2808273","cves":[],"risk":0},{"fqdn":"ubuntu14Endpoint4","besid":"5278930","cves":[],"risk":0},{"fqdn":"ubuntu14Endpoint3","besid":"5432073","cves":[],"risk":0},{"fqdn":"eval.mybigfix.com","besid":"9506709","cves":[],"risk":0},{"fqdn":"centos7Endpoint2","besid":"11238094","cves":[],"risk":0},{"fqdn":"centos7Endpoint4","besid":"13803872","cves":[],"risk":0},{"fqdn":"centos7Endpoint1","besid":"15347565","cves":[],"risk":0},{"fqdn":"ubuntu14Endpoint1","besid":"16467565","cves":[],"risk":0}]}
+<Value>{"assets":[{"fqdn":"ubuntu14Endpoint2","besid":"3336059","cves":[],"risk":0},{"fqdn":"ubuntu14Endpoint1","besid":"7148605","cves":[],"risk":0},{"fqdn":"centos6Endpoint1","besid":"12940085","cves":[],"risk":0},{"fqdn":"eval.mybigfix.com","besid":"14495733","cves":[],"risk":0},{"fqdn":"centos6Endpoint2","besid":"15089363","cves":[],"risk":0}]}
 </Value>
 </DashboardData>
 </BESAPI>
