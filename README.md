@@ -13,7 +13,7 @@ BES_CLIENT=3 (produces 3 x CentOS6 Endpoint, 3 x CentOS7 Endpoints, 3 x Ubuntu14
 ********************************************************************************
 Launch vagrant with the following command
 ********************************************************************************
-BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=1 vagrant up
+BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=1 PYTHON_SCRIPTS=1 vagrant up
 ********************************************************************************
 ********************************************************************************
 

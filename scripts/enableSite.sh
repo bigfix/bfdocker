@@ -55,7 +55,7 @@ log()
 ##
 executeEnablePostRequest()
 {
-   log "About to execute: curl  --tlsv1.2 -s --header Authorization: Basic "${IEMUSER}"' -w "%{http_code}" --insecure  -X POST --data-binary @$XMLFILE https://${SERVERDNSNAME}:${IEMSERVERPORT}/api/sites"   
+   log "About to execute: curl  --tlsv1.2 -s --header Authorization: Basic <user:password>' -w "%{http_code}" --insecure  -X POST --data-binary @$XMLFILE https://${SERVERDNSNAME}:${IEMSERVERPORT}/api/sites"   
    returncode="$(curl  --tlsv1.2 -s --header "Authorization:Basic ${IEMUSER}" -w "%{http_code}" --insecure -X POST --data-binary @${XMLFILE} https://${SERVERDNSNAME}:${IEMSERVERPORT}/api/sites -o /dev/null)"
 
    if [[ "$returncode" -ne "200" ]]; then
@@ -99,7 +99,7 @@ handleInputParameters()
 
          -iemuser)
             IEMUSER1=$1;
-            IEMUSER=$(echo -ne "\$IEMUSER1" | base64); export IEMUSER
+            IEMUSER=$(echo -ne $IEMUSER1 | base64); export IEMUSER
             echo $IEMUSER;
             shift
          ;;

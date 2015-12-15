@@ -50,6 +50,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
     end
 
+    # run the python scripts
+    config.vm.provision "pythonscripts", type: "shell" do |ps|
+      if ENV["PYTHON_SCRIPTS"]
+        ps.path = "./scripts/auto-enable-external-sites.sh"
+        PS_ARGS = ENV["PYTHON_SCRIPTS"]
+        ps.args = PS_ARGS
+      end
+    end
+
     # configure some client containers
     config.vm.provision "besclient", type: "shell" do |bc|
       if ENV["BES_CLIENT"]
