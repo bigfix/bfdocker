@@ -1,6 +1,6 @@
 #!/bin/bash
 printf "Usage blueprint: ./launchInstall.sh <numberOfClientSets> <besVersion> <bigfixAccept> <dashboardVariables> <runPythonScripts>\n"
-printf "Sample Usage: ./launchInstall.sh 3 9.2.6.94 true true true"
+printf "Sample Usage: ./launchInstall.sh 3 9.2.6.94 true true true\n"
 # Run dos2unix conversion script
 ./convertDosToUnix.sh
 wait
