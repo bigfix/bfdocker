@@ -34,3 +34,23 @@ some hepler commands for development:
 --------------------------------------
 python checkSiteGathered.py localhost "EvaluationUser:BigFix1t4Me" "Bigfix4QRadar Test" 30 200 30 10 "domain" 52311
 python subscribeSiteToAllComputers.py localhost "EvaluationUser:BigFix1t4Me" "Bigfix4QRadar Test" 200 60 "domain" 52311
+-----------------------------------------------------------------------------------------------------------------------
+********************************************************************************
+
+##/ Quick-Tip:
+For a quick set-up, simply run the lanuchInstall.sh script in cygwin with no arguments - 
+This will convert all of the .sh and .txt files it finds in the project directory from dos 
+format to unix in case the scripts were modified with windows crlf formatted line endings. 
+Running the launchInstall.sh script with no arguments will convert files and run vagrant up
+with the default values of: 
+	BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=true PYTHON_SCRIPTS=true
+Example:
+	./launchInstall.sh
+You can also run the script and specify just the number of client machine sets you want to
+create (a set includes one centOS6, one centOS7 and one Ubuntu client), with the remaining 
+values still set to default, though you may specify the remaining values also if you wish,
+for example:
+	./launchInstall.sh 5 		Will create 5 sets of clients with default settings
+	./launchInstall.sh 5 9.X.X.X true true true		Will create 5 sets of clients with a specified bigfix version
+##/
+********************************************************************************

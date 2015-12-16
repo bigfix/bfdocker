@@ -1,7 +1,5 @@
 VAGRANTFILE_API_VERSION = "2"
 
-
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if ENV["BF_ACCEPT"] == 'true'
 
@@ -33,11 +31,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vbguest.auto_update = false
     end
 
-    config.vm.provision "conversion" , type: "shell" do |cvn|
+    # Convert all files from Dos to Unix format
+    config.vm.provision "conversion", type: "local_shell" do |cvn|
         cvn.path = "./convertDosToUnix.sh"
     end
 
-    config.vm.provision "common" , type: "shell" do |c|
+    config.vm.provision "common", type: "shell" do |c|
         c.path = "./scripts/vagrant-provision-common.sh"
     end
 

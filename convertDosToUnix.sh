@@ -1,4 +1,8 @@
 #!/bin/bash
+printf "Ensure dos2unix converter is installed in cygwin\n"
+# Install dos2unix converter on vm machine
+#printf "Installing dos2unix converter...\n"
+#sudo yum -y install dos2unix
 # Check-file list text file
 if [[ ! $CHECK_FILE ]]
 then
@@ -6,13 +10,15 @@ then
 fi
 # Set pwd
 directory=$(pwd)
+# Print working directory
+printf "Checking directory: $directory\n"
 # Find all .sh or .txt files and store in tempConversionFiles.txt
 find $directory -type f -name "*.sh" -o -name "*.txt" > tempConversionFiles.txt
 # Output given CHECK_FILE
 printf "Reading from file: $CHECK_FILE\n"
 # Check if file exists
 if [[ -e "$CHECK_FILE" ]]
-then 
+then
 	printf "The list file exists: $CHECK_FILE\n"
 	printf "Converting text/bash files to Unix format...\n"
 	# Convert list text file to unix format
