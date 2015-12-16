@@ -31,11 +31,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vbguest.auto_update = false
     end
 
-    # Convert all files from Dos to Unix format
-    config.vm.provision "conversion", type: "local_shell" do |cvn|
-        cvn.path = "./convertDosToUnix.sh"
-    end
-
     config.vm.provision "common", type: "shell" do |c|
         c.path = "./scripts/vagrant-provision-common.sh"
     end
