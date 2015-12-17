@@ -17,7 +17,7 @@ wait
 # Change bac kt obesserver directory
 cd $(pwd)/../scripts
 # Run python script to wait until all listed sites have gathered
-python ./checkSiteGathered.py "127.0.0.1" EvaluationUser:BigFix1t4Me "Bigfix4QRadar Test" 180 200 60 15 "NONE" "52311"
+python ./checkSiteGathered.py "127.0.0.1" EvaluationUser:BigFix1t4Me "Bigfix4QRadar Test" 180 200 120 60 "NONE" "52311"
 wait
 # Run python script to subscribe all computers to the sites in siteList
 python ./subscribeSiteToAllComputers.py "127.0.0.1" EvaluationUser:BigFix1t4Me "Bigfix4QRadar Test" 200 60 "NONE" "52311"
