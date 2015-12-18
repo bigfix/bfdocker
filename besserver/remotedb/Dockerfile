@@ -14,8 +14,7 @@ RUN echo $BES_VERSION | \
 	| xargs curl > /ServerInstaller.tgz
 
 RUN tar -xzvf /ServerInstaller.tgz && mkdir /license
-COPY ./license/license.* \
-  /license/
+COPY ./license/license.* /license/
 COPY ./bes-install*.rsp /
 COPY ./bes-install.sh /
 COPY ./bes-start.sh /

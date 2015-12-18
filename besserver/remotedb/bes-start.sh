@@ -9,7 +9,8 @@ fi
 # install bes if it's not there
 if [[ ! -f /etc/init.d/besserver ]]
 then
-  BES_INSTALL_FILE=$BES_INSTALL_FILE bash /bes-install.sh
+  BES_INSTALL_FILE=$BES_INSTALL_FILE bash /bes-install.sh \
+    >/var/log/bfinstall.log 2>&1
 else
   # fire up bes
   service besserver start
