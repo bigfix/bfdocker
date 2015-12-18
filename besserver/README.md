@@ -26,10 +26,10 @@ By default docker is configured to create containers with a 10GB filesystem.  Th
 the values of `DB2INST1_PASSWORD` and `--hostname` in `build.sh` and when you start
 containers from the final image.
 
-2. Set the BF_ACCEPT environment variable to true to accept the BigFix licence. Optionally set the BigFix version using BES_VERSION Then run the build script:
+2. Set the BES_ACCEPT environment variable to true to accept the BigFix licence. Optionally set the BigFix version using BES_VERSION Then run the build script:
 
   ```
-  # BES_VERSION=9.2.6.94 BF_ACCEPT=true bash ./build.sh
+  # BES_VERSION=9.2.6.94 BES_ACCEPT=true bash ./build.sh
   ```
 
 3.  Start a container:
@@ -67,7 +67,7 @@ This creates a VirtualBox CentOS box (VM).
 It then installs and configures docker and then builds the evaluation edition of BigFix server.  Finally docker containers running the BigFix agent can be added.
 
 
-1. Set `BF_ACCEPT=true` to accept the BigFix license.
+1. Set `BES_ACCEPT=true` to accept the BigFix license.
 2. Optionally set BES_CLIENT=1 to create a CentOS7 container with the BigFix agent.
 3. Optionally set the BigFix version using BES_VERSION.
 4. Optionally set VM_BOX to the location of a base vagrant box
@@ -75,7 +75,7 @@ It then installs and configures docker and then builds the evaluation edition of
 6. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_CLIENT=1 BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
+$ BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
 ```
 
 ### Remote database edition
@@ -91,7 +91,7 @@ It then installs and a configures a set of docker containers:
 To use
 
 1. Set `BES_CONFIG=remdb`
-2. Set `BF_ACCEPT=true` to accept the BigFix license.
+2. Set `BES_ACCEPT=true` to accept the BigFix license.
 2. Optionally set `BES_CLIENT=1` to create a CentOS7 container with the BigFix agent.
 3. Optionally set the BigFix version using BES_VERSION.
 4. Optionally set VM_BOX to the location of a base vagrant box
@@ -99,5 +99,5 @@ To use
 6. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_CONFIG=remdb BES_CLIENT=1 BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
+$ BES_CONFIG=remdb BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
 ```

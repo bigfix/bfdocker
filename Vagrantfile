@@ -1,7 +1,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  if ENV["BF_ACCEPT"] == 'true'
+  if ENV["BES_ACCEPT"] == 'true'
 
     # allow specification of base box
     VM_BOX=ENV["VM_BOX"] || "bento/centos-7.1"

@@ -20,7 +20,7 @@ This creates a VirtualBox CentOS box (VM).
 It then installs and configures docker and then builds the evaluation edition of BigFix server.  Finally docker containers running the BigFix agent can be added.
 
 
-1. Set `BF_ACCEPT=true` to accept the BigFix license.
+1. Set `BES_ACCEPT=true` to accept the BigFix license.
 2. Optionally set BES_CLIENT=1 to create a CentOS7 container with the BigFix agent.
 3. Optionally set the BigFix version using BES_VERSION.
 4. Optionally set VM_BOX to the location of a base vagrant box
@@ -28,7 +28,7 @@ It then installs and configures docker and then builds the evaluation edition of
 6. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_CLIENT=1 BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
+$ BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
 ```
 
 ### Production edition
@@ -45,7 +45,7 @@ To use
 
 1. Place your BigFix license certificate (.crt) and key (.pvk) files (or license authorization file) in `besserver/remotedb/license`.
 2. Set `BES_CONFIG=remdb`
-3. Set `BF_ACCEPT=true` to accept the BigFix license.
+3. Set `BES_ACCEPT=true` to accept the BigFix license.
 4. Optionally set `BES_CLIENT=1` to create a CentOS7 container with the BigFix agent.
 5. Optionally set the BigFix version using BES_VERSION.
 6. Optionally set VM_BOX to the location of a base vagrant box
@@ -53,5 +53,5 @@ To use
 8. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_CONFIG=remdb BES_CLIENT=1 BES_VERSION=9.2.6.94 BF_ACCEPT=true OHANA=1 vagrant up
+$ BES_CONFIG=remdb BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
 ```

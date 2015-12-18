@@ -3,9 +3,9 @@
 # script to build an image with an evaluation edition of bes
 # and create an instance of bes by running the installer
 
-if [[ ! "$BF_ACCEPT" = "true" ]]
+if [[ ! "$BES_ACCEPT" = "true" ]]
 then
-  echo usage: set BF_ACCEPT to true to accept the BigFix license
+  echo usage: set BES_ACCEPT to true to accept the BigFix license
   exit
 else
   sed -e s/LA_ACCEPT=\"false\"/LA_ACCEPT=\"true\"/g  bes-install.rsp > \
