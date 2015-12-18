@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<BESAPI>
+<DashboardData>
+<Dashboard>qui.ojo</Dashboard>
+<Name>assets</Name>
+<IsPrivate>false</IsPrivate>
+<Value>{"assets":[{"fqdn":"ubuntu14Endpoint2","besid":"3336059","cves":[],"risk":0},{"fqdn":"ubuntu14Endpoint1","besid":"7148605","cves":[],"risk":0},{"fqdn":"centos6Endpoint1","besid":"12940085","cves":[],"risk":0},{"fqdn":"eval.mybigfix.com","besid":"14495733","cves":[],"risk":0},{"fqdn":"centos6Endpoint2","besid":"15089363","cves":[],"risk":0}]}
+</Value>
+</DashboardData>
+</BESAPI>

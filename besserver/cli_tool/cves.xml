@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BESAPI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BESAPI.xsd">
+	<Query Resource="(name of it, id of it, concatenation &quot;, &quot; of unique values of cve id lists of relevant fixlets whose (cve id list of it is not &quot;N/A&quot; and cve id list of it is not &quot;Unspecified&quot; and cve id list of it is not &quot;&quot;) of it) of bes computers">
+		<Result>
+			<Tuple>
+				<Answer type="string">ubuntu14Endpoint2</Answer>
+				<Answer type="integer">3336059</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">ubuntu14Endpoint1</Answer>
+				<Answer type="integer">7148605</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">centos6Endpoint1</Answer>
+				<Answer type="integer">12940085</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">eval.mybigfix.com</Answer>
+				<Answer type="integer">14495733</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+			<Tuple>
+				<Answer type="string">centos6Endpoint2</Answer>
+				<Answer type="integer">15089363</Answer>
+				<Answer type="string"></Answer>
+			</Tuple>
+		</Result>
+		<Evaluation>
+			<Time>264.47ms</Time>
+			<Plurality>Plural</Plurality>
+		</Evaluation>
+	</Query>
+</BESAPI>

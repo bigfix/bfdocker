@@ -19,4 +19,5 @@ COPY ./license/license.* \
 COPY ./bes-install*.rsp /
 COPY ./bes-install.sh /
 COPY ./bes-start.sh /
-RUN chmod u+x /bes-install.sh /bes-start.sh
+COPY ./setupPluginServiceAndRESTAPI.sh /
+RUN chmod u+x /bes-install.sh /bes-start.sh /setupPluginServiceAndRESTAPI.sh

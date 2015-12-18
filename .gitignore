@@ -5,3 +5,5 @@
 besserver/remotedb/license/*
 
 besserver/commmon/ibm-yum.sh
+
+*.BESLicenseAuthorization

@@ -22,4 +22,5 @@ COPY ./db2-start.sh /
 COPY ./bes-install-accept.rsp /
 COPY ./bes-install.sh /
 COPY ./bes-start.sh /
-RUN chmod u+x /db2-start.sh /bes-install.sh /bes-start.sh
+COPY ./setupPluginServiceAndRESTAPI.sh /
+RUN chmod u+x /db2-start.sh /bes-install.sh /bes-start.sh /setupPluginServiceAndRESTAPI.sh

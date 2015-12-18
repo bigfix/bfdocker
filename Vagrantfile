@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vbguest.auto_update = false
     end
 
-    config.vm.provision "common" , type: "shell" do |c|
+    config.vm.provision "common", type: "shell" do |c|
         c.path = "./scripts/vagrant-provision-common.sh"
     end
 
@@ -50,12 +50,30 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
     end
 
+    # run the python scripts
+    config.vm.provision "pythonscripts", type: "shell" do |ps|
+      if ENV["PYTHON_SCRIPTS"]
+        ps.path = "./scripts/auto-enable-external-sites.sh"
+        PS_ARGS = ENV["PYTHON_SCRIPTS"]
+        ps.args = PS_ARGS
+      end
+    end
+
     # configure some client containers
     config.vm.provision "besclient", type: "shell" do |bc|
       if ENV["BES_CLIENT"]
         bc.path = "./scripts/vagrant-provision-client.sh"
         BC_ARGS = ENV["BES_CLIENT"]
         bc.args = BC_ARGS
+      end
+    end
+
+    # configure dashboardvariable with data
+    config.vm.provision "dashvar", type: "shell" do |dv|
+      if ENV["DASH_VAR"]
+        dv.path = "./scripts/vagrant-provision-dash-var.sh"
+        DV_ARGS = ENV["DASH_VAR"]
+        dv.args = DV_ARGS
       end
     end
   end
