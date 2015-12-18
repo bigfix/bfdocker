@@ -23,5 +23,4 @@ COPY ./bes-install-accept.rsp /
 COPY ./bes-install.sh /
 COPY ./bes-start.sh /
 COPY ./setupPluginServiceAndRESTAPI.sh /
-COPY ./ibm-1.2.0.6-node-v0.12.7-linux-x64.tar.gz /
 RUN chmod u+x /db2-start.sh /bes-install.sh /bes-start.sh /setupPluginServiceAndRESTAPI.sh

@@ -1,5 +1,5 @@
 #!/bin/bash
-echo building remote db configuraiotn of BigFix
+echo building remote db configuration of BigFix
 # build docker image with the evaluation edition of BigFix server (besserver)
 cd /vagrant/besserver/remotedb
 

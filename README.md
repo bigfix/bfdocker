@@ -11,10 +11,14 @@ BES_CLIENT=2 (produces 2 x CentOS6 Endpoint, 2 x CentOS7 Endpoints, 2 x Ubuntu14
 BES_CLIENT=3 (produces 3 x CentOS6 Endpoint, 3 x CentOS7 Endpoints, 3 x Ubuntu14 Endpoint. 9 Endpoints Total)
 
 ********************************************************************************
-Launch vagrant with the following command
+Launch vagrant with the following command to use Evaluation Licence version
 ********************************************************************************
 BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=1 PYTHON_SCRIPTS=1 vagrant up
 ********************************************************************************
+Note: for new licence .BESLicenxeAuthorization production licence version use:
+BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=1 PYTHON_SCRIPTS=1 BES_CONFIG=remdb BES_INSTALL_FILE=bes-install-auth vagrant up
+or for pvk and cert files use:
+BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=1 PYTHON_SCRIPTS=1 BES_CONFIG=remdb BES_INSTALL_FILE=bes-install-prod vagrant up
 ********************************************************************************
 
 --------------------
@@ -38,12 +42,12 @@ python subscribeSiteToAllComputers.py localhost "EvaluationUser:BigFix1t4Me" "Bi
 ********************************************************************************
 
 ##/ Quick-Tip:
-For a quick set-up, simply run the lanuchInstall.sh script in cygwin with no arguments - 
+For a quick set-up, run the lanuchInstall.sh script in cygwin with no arguments - 
 This will convert all of the .sh and .txt files it finds in the project directory from dos 
 format to unix in case the scripts were modified with windows crlf formatted line endings. 
 Running the launchInstall.sh script with no arguments will convert files and run vagrant up
 with the default values of: 
-	BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=true PYTHON_SCRIPTS=true
+	BES_CLIENT=2 BES_VERSION=9.2.6.94 BF_ACCEPT=true DASH_VAR=true PYTHON_SCRIPTS=true (With Evaluation License)
 Example:
 	./launchInstall.sh
 You can also run the script and specify just the number of client machine sets you want to

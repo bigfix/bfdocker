@@ -8,3 +8,5 @@ besserver/remotedb/license/*.afxm
 besserver/remotedb/license/*.BESLicenseAuthorization
 
 besserver/commmon/ibm-yum.sh
+
+*.BESLicenseAuthorization
