@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # So control what type of bes server is built using environment.
     config.vm.provision "besserver", type: "shell" do |s|
       # default to evaluation edition
-      if ENV["BES_CONFIG"] == 'remdb'
+      if ENV["BES_CONFIG"] == 'prod'
         s.path = "./scripts/vagrant-provision-prod.sh"
       else
         s.path = "./scripts/vagrant-provision-svr.sh"
