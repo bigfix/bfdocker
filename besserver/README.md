@@ -80,7 +80,7 @@ $ BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
 
 ### Remote database edition
 
-This option requires a valid BigFix license.  See the remotedb README.md for more details.
+This option requires a valid BigFix license.  See the production README.md for more details.
 
 This creates a VirtualBox CentOS box (VM).
 It then installs and a configures a set of docker containers:
