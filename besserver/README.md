@@ -80,7 +80,7 @@ $ BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
 
 ### Remote database edition
 
-This option requires a valid BigFix license.  See the remotedb README.md for more details.
+This option requires a valid BigFix license.  See the production README.md for more details.
 
 This creates a VirtualBox CentOS box (VM).
 It then installs and a configures a set of docker containers:
@@ -90,7 +90,7 @@ It then installs and a configures a set of docker containers:
 
 To use
 
-1. Set `BES_CONFIG=remdb`
+1. Set `BES_CONFIG=prod`
 2. Set `BES_ACCEPT=true` to accept the BigFix license.
 2. Optionally set `BES_CLIENT=1` to create a CentOS7 container with the BigFix agent.
 3. Optionally set the BigFix version using BES_VERSION.
@@ -99,5 +99,5 @@ To use
 6. To put the box on the VirtualBox private network set `OHANA=1`; this will allow a console VM on the same host to connect to the server.  For example:
 
 ```
-$ BES_CONFIG=remdb BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
+$ BES_CONFIG=prod BES_CLIENT=1 BES_VERSION=9.2.6.94 BES_ACCEPT=true OHANA=1 vagrant up
 ```

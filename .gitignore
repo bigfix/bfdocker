@@ -2,6 +2,6 @@
  Dockerfile_*
  bes-install-accept.rsp
 
-besserver/remotedb/license/*
+besserver/production/license/license.*
 
 besserver/commmon/ibm-yum.sh
