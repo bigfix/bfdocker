@@ -13,6 +13,9 @@ RUN echo $BES_VERSION | \
   sed 's/\([0-9]*\)\(\.\)\([0-9]*\)\(.*\)/http:\/\/software.bigfix.com\/download\/bes\/\1\3\/ServerInstaller_\1\2\3\4-rhe6.x86_64.tgz/g' \
 	| xargs curl > /ServerInstaller.tgz
 
+# alternative is to copy it from a local file
+# COPY ./ServerInstaller*.tgz /ServerInstaller.tgz
+
 RUN tar -xzvf /ServerInstaller.tgz && mkdir /license
 COPY ./license/license.* /license/
 COPY ./bes-install*.rsp /
