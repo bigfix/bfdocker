@@ -22,11 +22,15 @@ then
 
   # change the docker config to allocate 20G to containers
   # see https://docs.docker.com/articles/systemd/ for info on configuration
-  mkdir -p /etc/systemd/system/docker.service.d
-  echo '[Service]' > /etc/systemd/system/docker.service.d/docker.conf
-  echo 'ExecStart=' >> /etc/systemd/system/docker.service.d/docker.conf
-  echo "ExecStart=/usr/bin/docker -d -s=devicemapper --storage-opt dm.basesize=20G -H fd:// " \
-      >>  /etc/systemd/system/docker.service.d/docker.conf
+  #mkdir -p /etc/systemd/system/docker.service.d
+  #echo '[Service]' > /etc/systemd/system/docker.service.d/docker.conf
+  #echo 'ExecStart=' >> /etc/systemd/system/docker.service.d/docker.conf
+  #echo "ExecStart=/usr/bin/docker -d -s=devicemapper --storage-opt dm.basesize=20G -H fd:// " \
+  #    >>  /etc/systemd/system/docker.service.d/docker.conf
+  
+  ## ^ No longer works, must run dockerd instead of docker -d
+  sed -i 's/bin\/dockerd/bin\/dockerd --storage-driver=devicemapper --storage-opt dm.basesize=20G/g' /usr/lib/systemd/system/docker.service
+  
   systemctl daemon-reload
 fi
 # Start docker and set to start on boot
