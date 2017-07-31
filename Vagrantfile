@@ -58,6 +58,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         bc.path = "./scripts/vagrant-provision-client.sh"
         BC_ARGS = ENV["BES_CLIENT"]
         bc.args = BC_ARGS
+      else
+        # Cannot have a shell command w/o program to run.
+        bc.inline = "echo bugfixes for bigfixes"
       end
     end
   end
